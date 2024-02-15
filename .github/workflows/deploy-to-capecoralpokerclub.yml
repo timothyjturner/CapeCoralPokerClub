@@ -31,4 +31,4 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
       - name: Deploy with rsync
-        run: rsync -avz ./.next/ ${{ secrets.SSH_USER }}@capecoralpokerclub.com:/public_html/test/ --exclude ./wp.capecoralpokerclub.com
+        run: ssh minerman@capecoralpokerclub.com "mkdir test"
