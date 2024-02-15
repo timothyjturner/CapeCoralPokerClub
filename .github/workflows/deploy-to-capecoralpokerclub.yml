@@ -1,29 +1,13 @@
 name: Deploy to CapeCoralPokerClub
 
 on:
-  workflow_call:
-    inputs:
-      ref:
-        required: true
-        type: string
-      environment:
-        required: true
-        type: string
-      role:
-        required: true
-        type: string
-      region:
-        required: true
-        type: string
-    secrets:
-      CUSTOM_GITHUB_TOKEN:
-        required: true
-      WPE_SSHG_KEY_PRIVATE:
-        required: true
+  push:
+    branches:
+      - main
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
