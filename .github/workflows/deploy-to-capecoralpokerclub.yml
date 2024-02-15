@@ -31,4 +31,4 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
       - name: Deploy with rsync
-        run: ssh minerman@capecoralpokerclub.com "mkdir test"
+        run: ssh minerman@198.12.224.170 "mkdir test"
