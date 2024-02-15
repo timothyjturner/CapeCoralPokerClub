@@ -67,7 +67,9 @@ export const getStaticProps: GetStaticProps = async ({
   preview = false,
   previewData,
 }) => {
+  console.log('this runs');
   const data = await getPostAndMorePosts(params?.slug, preview, previewData);
+  console.log('this runs too');
 
   return {
     props: {

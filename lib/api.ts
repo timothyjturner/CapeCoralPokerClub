@@ -102,6 +102,9 @@ export async function getAllPostsForHome(preview) {
 }
 
 export async function getPostAndMorePosts(slug, preview, previewData) {
+  console.log('slug... ', slug);
+  console.log('preview...', preview);
+  console.log('preview data...', previewData);
   const postPreview = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
