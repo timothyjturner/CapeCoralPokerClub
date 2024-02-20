@@ -45,4 +45,3 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz -e "ssh -vvv" ./next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test
-"
