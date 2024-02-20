@@ -28,7 +28,10 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'capecoralpokerclub.com'
+          known_hosts: unnecessary
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no -vvv" ./next/ minerman@capecoralpokerclub.com:public_html/test
+        run: rsync -avz -e ssh ./next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test
