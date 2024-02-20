@@ -34,12 +34,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        uses: trendyminds/github-actions-rsync@master
-        with:
-          RSYNC_OPTIONS: -avz
-          RSYNC_TARGET: /home/public_html/test/
-          RSYNC_SOURCE: /.next/
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_USERNAME: ${{ secrets.SSH_USER }}
-          SSH_HOSTNAME: ${{ secrets.SSH_HOST }}
+        run: rsync -avz -e ssh ./next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test
