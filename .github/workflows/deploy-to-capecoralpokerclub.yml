@@ -31,4 +31,4 @@ jobs:
           known_hosts: 'capecoralpokerclub.com'
 
       - name: Deploy with rsync
-        run: rsync -avz -e "ssh -vvv" ./next/ minerman@capecoralpokerclub.com:public_html/test
+        run: rsync -avz -e "ssh -o StrictHostKeyChecking=no -vvv" ./next/ minerman@capecoralpokerclub.com:public_html/test
