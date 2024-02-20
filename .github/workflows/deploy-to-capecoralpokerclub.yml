@@ -36,7 +36,13 @@ jobs:
       - name: Add SSH key to ssh-agent
         run: |
           eval "$(ssh-agent -s)"
-          ssh-add - <<< ${{ secrets.SSH_PRIVATE_KEY }}
+          echo "$SSH_PRIVATE_KEY" > /tmp/ssh_key
+          chmod 600 /tmp/ssh_key
+          ssh-add /tmp/ssh_key
+          rm /tmp/ssh_key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy with rsync
-        run: rsync -avz -e ssh ./next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test
+        run: rsync -avz -e "ssh -vvv" ./next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test
+"
