@@ -6,7 +6,7 @@ import Header from "../components/header";
 
 const Index = () => {
   return (
-    <Layout>
+    <Layout preview="na">
       <Head>
         <title>{`Cape Coral Poker Club`}</title>
       </Head>
