@@ -103,4 +103,11 @@
   @apply grid grid-cols-2 gap-4;
 }
 
+.standard-container {
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @import './components/nav';
+@import './components/event';

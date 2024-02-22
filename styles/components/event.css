@@ -1,0 +1,10 @@
+.ccpc-event {
+    max-width: 90vw;
+    order: 2;
+}
+.ccpc-event__sticky {
+    order: 1;
+    /* border-color: ECB34D; */
+    border-width: 1px;
+    box-shadow: 1px 1px 5px #04563D;
+}
